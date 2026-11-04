@@ -6,36 +6,45 @@
     font-weight: 400;
 }
 
+body {
+    overflow-x: hidden;
+}
+
+/* ========== DESKTOP ========== */
+
 .wrapper {
-    height: 100vh;
-    width: 100vw;
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
 }
 
 .container-left {
-    display: inline-block;
-    width: 60%;
-    padding-left: 136px;
-    margin-top: 20%;
+    flex: 0 0 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px 40px 40px 136px;
 }
 
 .container-right {
-    display: inline-block;
-    background-color: rgba(93,93,125,0.16);
-    height: 100vh;
-    width: 40%;
-    position: absolute;
+    flex: 0 0 40%;
+    position: relative;
+    background-color: rgba(93, 93, 125, 0.16);
+    min-height: 100vh;
 }
 
 img {
     position: relative;
     top: 25%;
     right: 130px;
+    max-width: none;
 }
 
 h1 {
     font-size: 70px;
     line-height: 80px;
-    width: 368px;
+    max-width: 368px;
 }
 
 p {
@@ -43,14 +52,15 @@ p {
     line-height: 48px;
     opacity: 0.6;
     margin: 15px 0;
-    width: 540px;
+    max-width: 540px;
 }
 
 button {
-    width: 269px;
+    width: 274px;
+    max-width: 100%;
     height: 62px;
     background: #9499EA;
-    box-shadow: 0xpx 10px 24px rgba(148,153,234,0.0979959);
+    box-shadow: 0 10px 24px rgba(148, 153, 234, 0.0979959);
     border: none;
     border-radius: 30px;
     font-size: 24px;
@@ -68,11 +78,16 @@ button:active {
     opacity: 0.5;
 }
 
+header {
+    margin: 24px 0 0 57px;
+}
+
 a {
     font-size: 28px;
     line-height: 41px;
     color: #5D5D7D;
     margin-right: 41px;
+    text-decoration: none;
 }
 
 a:nth-child(2) {
@@ -87,100 +102,94 @@ a:active {
     opacity: 0.8;
 }
 
-header {
-    margin: 24px 0 0 57px;
-    
+/* ========== TABLET (até 1024px) ========== */
+
+@media screen and (max-width: 1024px) {
+    .container-left {
+        padding: 40px 24px 40px 60px;
+    }
+
+    header {
+        margin: 24px 0 0 32px;
+    }
+
+    a {
+        font-size: 20px;
+        margin-right: 20px;
+    }
+
+    img {
+        right: 80px;
+        width: 420px;
+        max-width: 140%;
+    }
+
+    h1 {
+        font-size: 56px;
+        line-height: 66px;
+    }
+
+    p {
+        font-size: 20px;
+        line-height: 32px;
+    }
 }
 
- 
-/* ========== TABLET (até 1024px) ========== */
- 
-@media screen and (max-width: 1024px) {
-  header {
-    margin: 32px 0 48px 40px;
-  }
- 
-  .link-header {
-    font-size: 20px;
-    margin-right: 16px;
-  }
- 
-  main {
-    gap: 40px;
-  }
- 
-  .logo-image {
-    width: 380px;
-  }
- 
-  section {
-    width: 380px;
-  }
- 
-  h1 {
-    font-size: 64px;
-    line-height: 78px;
-  }
- 
-  h2 {
-    font-size: 36px;
-    line-height: 44px;
-  }
- 
-  p {
-    font-size: 18px;
-    line-height: 24px;
-    margin-bottom: 40px;
-  }
-}
- 
 /* ========== CELULAR (até 768px) ========== */
- 
+
 @media screen and (max-width: 768px) {
-  header {
-    display: none;
-  }
- 
-  main {
-    flex-direction: column;
-    gap: 0;
-    padding: 40px 20px;
-  }
- 
-  .logo-image {
-    width: 90%;
-    max-width: 420px;
-    margin: 0;
-  }
- 
-  section {
-    width: 100%;
-    margin: 0;
-  }
- 
-  h1 {
-    font-size: 36px;
-    line-height: 52px;
-    margin: 30px 0 0;
-    text-align: center;
-  }
- 
-  h2 {
-    font-size: 24px;
-    line-height: 32px;
-    text-align: center;
-  }
- 
-  p {
-    margin: 15px 0 30px;
-    font-size: 16px;
-    line-height: 24px;
-    text-align: center;
-  }
- 
-  .button-main {
-    display: block;
-    margin: 0 auto;
-  }
+    .wrapper {
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .container-left {
+        flex: none;
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        padding: 48px 20px 32px;
+    }
+
+    .container-right {
+        flex: 1;
+        width: 100%;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 32px 20px;
+    }
+
+    header {
+        display: none;
+    }
+
+    img {
+        position: static;
+        width: 85%;
+        max-width: 360px;
+        height: auto;
+    }
+
+    h1 {
+        font-size: 40px;
+        line-height: 52px;
+        max-width: 100%;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 26px;
+        max-width: 100%;
+        margin: 16px 0 24px;
+    }
+
+    button {
+        width: 100%;
+        max-width: 274px;
+        height: 54px;
+        font-size: 20px;
+    }
 }
- 
